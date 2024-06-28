@@ -1,5 +1,6 @@
 package com.example.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,7 @@ public class CartItem {
 
     @ManyToOne
     @JoinColumn(name = "cart_id", referencedColumnName = "id")
+    @JsonIgnore
     private Cart cart;
 
     @ManyToOne
