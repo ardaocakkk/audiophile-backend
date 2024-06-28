@@ -1,5 +1,6 @@
 package com.example.demo.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -30,5 +31,6 @@ public class UserDetail {
     private String PhoneNumber;
 
     @OneToOne(mappedBy = "userDetail", cascade = jakarta.persistence.CascadeType.ALL)
+    @JsonIgnore
     private User user;
 }

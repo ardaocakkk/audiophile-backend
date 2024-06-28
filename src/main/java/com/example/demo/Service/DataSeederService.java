@@ -4,6 +4,7 @@ import com.example.demo.Model.*;
 import com.example.demo.Repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -27,6 +28,10 @@ public class DataSeederService implements CommandLineRunner {
     private final UserDetailRepository userDetailRepository;
 
     private final ProductService productService;
+
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    private final UserDetailService userDetailService;
     @Override
     public void run(String... args) throws Exception {
         ProductDetail yx1EarphoneDetail = ProductDetail.builder()
@@ -71,7 +76,7 @@ public class DataSeederService implements CommandLineRunner {
 // Create and save the user
         User user = User.builder()
                 .email("arda")
-                .password("arda")
+                .password(bCryptPasswordEncoder.encode("arda"))
                 .build();
         userRepository.save(user);
 
@@ -98,5 +103,17 @@ public class DataSeederService implements CommandLineRunner {
 
 // Save the cart item
         cartItemRepository.save(cartItem);
+
+
+        UserDetail userDetail = UserDetail.builder()
+                .Country("Turkey")
+                .City("Istanbul")
+                .Address("Istanbul")
+                .PostalCode("34000")
+                .PhoneNumber("1234567890")
+                .build();
+        userDetailRepository.save(userDetail);
+        user.setUserDetail(userDetail);
+        userRepository.save(user);
     }
 }
