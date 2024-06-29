@@ -8,24 +8,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@Builder
 @Entity
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-public class ProductInclude {
+@NoArgsConstructor
+@Builder
+public class ProductImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long id;
+    private String mobile;
+    private String tablet;
+    private String desktop;
 
-    private Long quantity;
-    private String item;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_detail_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "image")
     @JsonIgnore
-    private ProductDetail productDetail;
-
+    private Product product;
 }

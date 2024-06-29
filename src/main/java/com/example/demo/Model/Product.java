@@ -19,9 +19,16 @@ public class Product {
 
     private String slug;
     private String name;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_image_id", referencedColumnName = "id")
+    private ProductImage image;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_detail_id", referencedColumnName = "id")
     private ProductDetail productDetail;
+
+
+
+
 
 }
