@@ -20,6 +20,13 @@ public class CartService {
     private final UserRepository userRepository;
 
 
+
+    public Cart save() {
+        Cart cart = Cart.builder().build();
+        cartRepository.save(cart);
+        return cart;
+    }
+
     public Cart getCartByUserId(Long userId) {
         Optional<User> user = userRepository.findById(userId);
         if (user.isPresent()) {
