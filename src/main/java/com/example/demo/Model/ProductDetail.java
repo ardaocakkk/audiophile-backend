@@ -41,7 +41,7 @@ public class ProductDetail {
     @JsonIgnore
     private Product product;
 
-    @OneToMany(mappedBy = "productDetail", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "productDetail", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<ProductInclude> includes;
 
 

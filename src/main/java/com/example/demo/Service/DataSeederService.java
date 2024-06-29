@@ -119,12 +119,23 @@ public class DataSeederService implements CommandLineRunner {
                 .build();
         cartRepository.save(cart);
 
+        CartItemProduct yx1EarphoneCartItemProduct = CartItemProduct.builder()
+                .name("YX1")
+                .slug("yx1-earphones")
+                .quantity(1L)
+                .price(599.0)
+                .image("/cart/cart-3.png")
+                .build();
+
 // Create the cart item
         CartItem cartItem = CartItem.builder()
                 .cart(cart)
-                .product(yx1Earphone)
+                .cartItemProduct(yx1EarphoneCartItemProduct)
                 .quantity(1L)
                 .build();
+
+        yx1EarphoneCartItemProduct.setCartItem(cartItem);
+
 
 // Save the cart item
         cartItemRepository.save(cartItem);

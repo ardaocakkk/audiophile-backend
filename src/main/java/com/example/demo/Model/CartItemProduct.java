@@ -8,25 +8,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartItem {
+@Builder
+public class CartItemProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String name;
+    private String slug;
+    private Double price;
     private Long quantity;
     private String image;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "cartItemProduct", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private Cart cart;
-
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "cart_item_product_id", referencedColumnName = "id")
-    private CartItemProduct cartItemProduct;
+    private CartItem cartItem;
 }

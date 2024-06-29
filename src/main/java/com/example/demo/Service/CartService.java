@@ -41,13 +41,7 @@ public class CartService {
             user.setCart(cart);
         }
 
-        CartItem cartItem = CartItem.builder()
-                .cart(cart)
-                .product(product)
-                .quantity((long) quantity)
-                .build();
-        cart.getCartItems().add(cartItem);
-        cartRepository.save(cart);
+
 
     }
 
