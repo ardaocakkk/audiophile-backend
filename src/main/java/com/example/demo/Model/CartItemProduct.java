@@ -23,7 +23,12 @@ public class CartItemProduct {
     private Long quantity;
     private String image;
 
-    @OneToOne(mappedBy = "cartItemProduct", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "cartItemProduct")
     @JsonIgnore
     private CartItem cartItem;
+
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
+    }
 }

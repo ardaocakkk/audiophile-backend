@@ -35,6 +35,8 @@ public class DataSeederService implements CommandLineRunner {
     private final UserDetailService userDetailService;
 
     private final CategoryImageRepository categoryImageRepository;
+
+    private final ProductImageRepository productImageRepository;
     @Override
     public void run(String... args) throws Exception {
 
@@ -131,7 +133,6 @@ public class DataSeederService implements CommandLineRunner {
         CartItem cartItem = CartItem.builder()
                 .cart(cart)
                 .cartItemProduct(yx1EarphoneCartItemProduct)
-                .quantity(1L)
                 .build();
 
         yx1EarphoneCartItemProduct.setCartItem(cartItem);
