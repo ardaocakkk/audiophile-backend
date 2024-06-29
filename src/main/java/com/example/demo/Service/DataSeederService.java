@@ -129,7 +129,6 @@ public class DataSeederService implements CommandLineRunner {
                 .image("/cart/cart-3.png")
                 .build();
 
-// Create the cart item
         CartItem cartItem = CartItem.builder()
                 .cart(cart)
                 .cartItemProduct(yx1EarphoneCartItemProduct)
@@ -138,7 +137,7 @@ public class DataSeederService implements CommandLineRunner {
         yx1EarphoneCartItemProduct.setCartItem(cartItem);
 
 
-// Save the cart item
+
         cartItemRepository.save(cartItem);
 
 

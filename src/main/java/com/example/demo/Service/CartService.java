@@ -37,7 +37,6 @@ public class CartService {
 
         boolean found = false;
 
-        // Check if the product is already in the cart
         for (CartItem cartItem : cartItems) {
             if (cartItem.getCartItemProduct().getSlug().equals(slug)) {
                 cartItem.getCartItemProduct().setQuantity(cartItem.getCartItemProduct().getQuantity() + 1);
@@ -47,14 +46,13 @@ public class CartService {
             }
         }
 
-        // If the product is not in the cart, add it as a new cart item
         if (!found) {
             CartItem newCartItem = CartItem.builder()
                     .cart(userCart)
                     .cartItemProduct(product)
                     .build();
             cartItemRepository.save(newCartItem);
-            cartItems.add(newCartItem); // Add to the cartItems list
+            cartItems.add(newCartItem);
         }
 
         cartRepository.save(userCart);

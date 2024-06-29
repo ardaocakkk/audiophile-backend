@@ -1,0 +1,47 @@
+###Register
+POST /auth/register HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 60
+
+{
+  "email" : "ardababa",
+  "password" : "ardababa"
+}
+
+
+###Login
+POST /auth/login HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 52
+
+{
+  "email" : "ardababa",
+  "password" : "ardababa"
+}
+
+###GET PRODUCT
+
+GET /product/ HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhcmRhIiwiaWF0IjoxNzE5NjcwMTk3LCJleHAiOjE3MTk3MDYxOTd9.i5s_8dC0cWaIIjWIYkiYYSyMJQAKIRxC-eUPS2iDRAIaaCcZepryzU70qGfne-Iv
+
+
+
+###GET AUTHENTICATED USER
+GET /user/me HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhcmRhIiwiaWF0IjoxNzE5NjcwMTk3LCJleHAiOjE3MTk3MDYxOTd9.i5s_8dC0cWaIIjWIYkiYYSyMJQAKIRxC-eUPS2iDRAIaaCcZepryzU70qGfne-Iv
+
+
+
+###Add item to product
+POST /cart/yx1-earphones HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhcmRhIiwiaWF0IjoxNzE5NjcwMTk3LCJleHAiOjE3MTk3MDYxOTd9.i5s_8dC0cWaIIjWIYkiYYSyMJQAKIRxC-eUPS2iDRAIaaCcZepryzU70qGfne-Iv
+
+
+
+
+
